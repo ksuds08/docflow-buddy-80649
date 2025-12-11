@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log in - DocFlow Buddy</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body class="auth-body">
+  <div class="auth-container">
+    <a href="/" class="auth-logo">DocFlow Buddy</a>
+    <h1>Log in</h1>
+    <form id="login-form" class="auth-form">
+      <label>Email
+        <input type="email" name="email" required />
+      </label>
+      <label>Password
+        <input type="password" name="password" required />
+      </label>
+      <button type="submit" class="btn-primary full-width">Log in</button>
+      <p class="auth-switch">Don't have an account? <a href="/static/signup.html">Sign up</a></p>
+      <p id="login-error" class="error"></p>
+    </form>
+  </div>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

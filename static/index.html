@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DocFlow Buddy - Keep your API docs in sync with your code</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <div class="logo">DocFlow Buddy</div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="/static/login.html" class="btn-secondary">Log in</a>
+        <a href="/static/signup.html" class="btn-primary">Get started</a>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>API docs that never fall behind your code.</h1>
+        <p>DocFlow Buddy watches your repos and nudges you to keep OpenAPI and code in sync — so users, partners, and collaborators always have the truth.</p>
+        <div class="hero-actions">
+          <a href="/static/signup.html" class="btn-primary">Start free trial</a>
+          <span class="hero-note">No credit card required, perfect for solo founders.</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="card">
+          <h3>Last doc sync</h3>
+          <p><strong>FastAPI SaaS</strong> · 2 endpoints changed</p>
+          <ul>
+            <li>POST /api/subscriptions – missing 201 response in OpenAPI</li>
+            <li>GET /api/billing/usage – new in code, not in spec</li>
+          </ul>
+          <button class="btn-primary">Open sync checklist</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="features" class="section features">
+      <h2>Built for solo SaaS founders who ship fast</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <h3>Git-aware change detection</h3>
+          <p>Connect a repo and we diff your routes/controllers against your OpenAPI or docs on every push, PR, or release tag.</p>
+        </div>
+        <div class="feature">
+          <h3>Actionable checklists, not a blank page</h3>
+          <p>See exactly which endpoints changed, what’s undocumented, and what’s drifted — with suggested descriptions and examples.</p>
+        </div>
+        <div class="feature">
+          <h3>CI-friendly nudges</h3>
+          <p>Fail builds, post PR comments, or send Slack/email digests when docs are out of date, so you never forget before deploy.</p>
+        </div>
+        <div class="feature">
+          <h3>Framework-agnostic</h3>
+          <p>Works with FastAPI, Express, Rails, Laravel, and more. Point us at your routes and we’ll keep track of the rest.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section pricing">
+      <h2>Simple pricing that scales with your projects</h2>
+      <div class="pricing-grid">
+        <div class="plan">
+          <h3>Solo Project</h3>
+          <p class="price">$15<span>/month</span></p>
+          <ul>
+            <li>1 connected repository</li>
+            <li>Git + CI integration</li>
+            <li>Sync checklist UI</li>
+            <li>Email reminders</li>
+          </ul>
+          <a href="{{STRIPE_MONTHLY_PAYMENT_LINK}}" class="btn-primary">Start monthly</a>
+        </div>
+        <div class="plan plan-featured">
+          <h3>Indie Studio</h3>
+          <p class="price">$29<span>/month</span></p>
+          <ul>
+            <li>Up to 5 repositories</li>
+            <li>PR comments & status checks</li>
+            <li>Slack + email alerts</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="{{STRIPE_YEARLY_PAYMENT_LINK}}" class="btn-primary">Get yearly deal</a>
+        </div>
+        <div class="plan">
+          <h3>Team Launch</h3>
+          <p class="price">$39<span>/month</span></p>
+          <ul>
+            <li>Up to 10 repositories</li>
+            <li>Unlimited collaborators</li>
+            <li>Custom alert rules</li>
+            <li>Shared project dashboards</li>
+          </ul>
+          <a href="/static/signup.html" class="btn-secondary">Talk to us</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item">
+        <h3>How does DocFlow Buddy detect when my docs are out of date?</h3>
+        <p>We analyze your routes/controllers and compare them to your OpenAPI or markdown docs on each sync. When we see new, changed, or removed endpoints, we create a checklist and (optionally) fail CI or post a PR comment.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you modify my code or OpenAPI files automatically?</h3>
+        <p>By default, no. DocFlow Buddy is designed to be safe and reversible: we surface diffs, generate suggestions, and let you apply them as commits or PRs from your own account.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Which languages and frameworks do you support?</h3>
+        <p>We start with popular stacks solo founders use: FastAPI, Express/Node, Rails, and Laravel. You can still track generic HTTP services by pointing us at your OpenAPI spec.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I use this with private repos?</h3>
+        <p>Yes. We connect via GitHub/GitLab tokens with least-privilege scopes and only store the metadata we need to detect doc drift.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© <span id="year"></span> DocFlow Buddy. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="mailto:founder@example.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

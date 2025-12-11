@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - DocFlow Buddy</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">DocFlow Buddy</div>
+    <nav>
+      <button id="logout-btn" class="btn-secondary">Log out</button>
+    </nav>
+  </header>
+  <main class="dashboard-main">
+    <section class="dashboard-intro">
+      <h1>Your projects</h1>
+      <p>Connect your API repositories and keep docs in lockstep with your code.</p>
+      <button id="new-project-btn" class="btn-primary">Add project</button>
+    </section>
+    <section>
+      <div id="projects-list" class="cards-grid">
+        <!-- Projects will be injected here -->
+      </div>
+    </section>
+
+    <section class="dashboard-help">
+      <h2>How it works</h2>
+      <ol>
+        <li>Add a project and link your Git repo.</li>
+        <li>Install the GitHub/GitLab app or CI snippet.</li>
+        <li>On each push/PR, DocFlow Buddy checks for drift and creates a sync checklist.</li>
+      </ol>
+    </section>
+  </main>
+
+  <div id="project-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>New project</h2>
+      <form id="project-form">
+        <label>Project name
+          <input type="text" name="name" required />
+        </label>
+        <label>Framework
+          <select name="framework" required>
+            <option value="fastapi">FastAPI</option>
+            <option value="express">Express</option>
+            <option value="rails">Rails</option>
+            <option value="laravel">Laravel</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label>Repository URL
+          <input type="url" name="repo_url" placeholder="https://github.com/you/your-api" />
+        </label>
+        <label>API style
+          <select name="api_style">
+            <option value="rest">REST</option>
+            <option value="graphql">GraphQL</option>
+            <option value="mixed">Mixed</option>
+          </select>
+        </label>
+        <div class="modal-actions">
+          <button type="button" id="cancel-project" class="btn-secondary">Cancel</button>
+          <button type="submit" class="btn-primary">Save project</button>
+        </div>
+        <p id="project-error" class="error"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
